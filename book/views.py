@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.template import loader
-# Create your views here.
+from django.http import HttpResponse
 
-def index(request):
-    template = loader.get_template('book/index.html')
-    context = {
-        'name':'world',
-        'yourname':'Yong',
+def Home(request):
+    template = loader.get_template("book/home.html")
+    context={
+        'pagename': 'HomePage',
     }
     return HttpResponse(template.render(context, request))
+def AboutMe(request):
+    return render(request, 'book/about.html')
