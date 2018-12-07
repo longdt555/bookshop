@@ -14,19 +14,7 @@ def AboutMe(request):
 
 def SearchForm(request):
     return render(request, 'book/search_form.html')
-#
-# def ShowInfor(request):
-#     if 'name' in request.GET:
-#         template = loader.get_template('book/infor.html')
-#         context={
-#             'name':request.GET['name'],
-#             'role':request.GET['role'],
-#             'level':request.GET['level'],
-#             'rank':request.GET['rank'],
-#         }
-#     else:
-#         return render(request, 'book/search_form.html')
-#     return HttpResponse(template.render(context, request))
+    
 thisdict =	{
   "name": "YONG",
   "role": "M249",
