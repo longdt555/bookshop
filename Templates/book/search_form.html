@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
     font-family: Arial;
     background-image: url('https://wallpapercave.com/wp/wp2208669.png');
 }
@@ -86,31 +87,37 @@ body {
 }
 </style>
 </head>
+
 <body>
-
-<div id="myOverlay" class="overlay">
-  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
-  <div class="overlay-content">
-    <form action="/info/" name="search" method="get">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+  {% if errors %}
+  <ul>
+    {% for error in errors %}
+    <li> {{ error }}</li>
+    {% endfor %}
+    {% endif %}
+  </ul>
+  <div id="myOverlay" class="overlay">
+    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+    <div class="overlay-content">
+      <form action="/infor/" method="get">
+        <input type="text" placeholder="Search.." name="name">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
   </div>
-</div>
+  <p>Click on the button to open the search box.</p>
+  <button class="openBtn" onclick="openSearch()">Open Search Box</button>
 
-<h2>Fullscreen Search</h2>
-<p>Click on the button to open the search box.</p>
-<button class="openBtn" onclick="openSearch()">Open Search Box</button>
+  <script>
+    function openSearch() {
+      document.getElementById("myOverlay").style.display = "block";
+    }
 
-<script>
-function openSearch() {
-    document.getElementById("myOverlay").style.display = "block";
-}
-
-function closeSearch() {
-    document.getElementById("myOverlay").style.display = "none";
-}
-</script>
+    function closeSearch() {
+      document.getElementById("myOverlay").style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>
