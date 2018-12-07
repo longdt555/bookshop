@@ -14,7 +14,7 @@ def AboutMe(request):
 
 def SearchForm(request):
     return render(request, 'book/search_form.html')
-    
+
 thisdict =	{
   "name": "YONG",
   "role": "M249",
@@ -39,3 +39,16 @@ def ShowInfor(request):
             }
             return HttpResponse(template.render(context, request))
     return render(request, 'book/search_form.html', {'errors':errors})
+
+def ImportFile(request):
+    errors=[]
+    if 'filename' in request.GET:
+        filename = request.GET['filename']
+        if not filename:
+            errors.append('Upload a file.')
+        else:
+            file=open('filename', 'r')
+            if file.mode=='r':
+                contents = file.read()
+            template = loader.get_template('book/infor.html')
+            context

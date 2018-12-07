@@ -6,4 +6,5 @@ urlpatterns=[
     url(r'^about/$', views.AboutMe),
     url(r'^search/$', views.SearchForm),
     url(r'^infor/$', views.ShowInfor),
+    url(r'^import/$', views.ImportFile)
 ]
